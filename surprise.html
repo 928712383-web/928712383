@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满屏爱意弹窗</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+        .popup {
+            position: absolute;
+            background-color: rgba(233, 30, 99, 0.8);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 20px;
+            font-family: "Arial", "微软雅黑", sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            pointer-events: none;
+            animation: popupAnim 3s ease-in-out forwards;
+        }
+        @keyframes popupAnim {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            20% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 关心和爱意的文字内容
+        const loveTexts = [
+            "亲爱的，要好好照顾自己哦",
+            "宝贝，我爱你",
+            "你是我生命里的光",
+            "照顾好自己，别让我担心",
+            "有你在，我真的很幸福",
+            "好好吃饭，按时休息",
+            "我永远在你身边支持你",
+            "你是我最爱的男朋友",
+            "要开开心心的，我的大男孩",
+            "别太累了，记得休息",
+            "我喜欢你的一切",
+            "有你真好",
+            "你是我的唯一",
+            "照顾好自己，等我哦",
+            "我爱你，胜过千言万语",
+            "你笑起来的样子真好看",
+            "想你了，我的大宝贝",
+            "要一直做我的专属男孩哦",
+            "你在我心里永远是第一位",
+            "好好爱自己，我才好更爱你"
+            "亲爱的，要好好照顾自己哦",
+            "宝贝，我爱你",
+            "你是我生命里的光",
+            "照顾好自己，别让我担心",
+            "有你在，我真的很幸福",
+            "好好吃饭，按时休息",
+            "我永远在你身边支持你",
+            "你是我最爱的男朋友",
+            "要开开心心的，我的大男孩",
+            "别太累了，记得休息",
+            "我喜欢你的一切",
+            "有你真好",
+            "你是我的唯一",
+            "照顾好自己，等我哦",
+            "我爱你，胜过千言万语",
+            "你笑起来的样子真好看",
+            "想你了，我的大宝贝",
+            "要一直做我的专属男孩哦",
+            "你在我心里永远是第一位",
+            "好好爱自己，我才好更爱你
+        ];
+
+        function createPopup() {
+            const popup = document.createElement("div");
+            popup.className = "popup";
+            // 随机选择文字
+            const randomText = loveTexts[Math.floor(Math.random() * loveTexts.length)];
+            popup.textContent = randomText;
+            // 随机位置
+            popup.style.left = `${Math.random() * (100 - 20)}%`;
+            popup.style.top = `${Math.random() * (100 - 20)}%`;
+            // 随机背景颜色
+            const hue = Math.floor(Math.random() * 360);
+            popup.style.backgroundColor = `hsl(${hue}, 80%, 50%)`;
+            // 随机字体大小
+            const fontSize = 16 + Math.random() * 10;
+            popup.style.fontSize = `${fontSize}px`;
+            document.body.appendChild(popup);
+
+            // 动画结束后移除元素
+            setTimeout(() => {
+                popup.remove();
+            }, 3000);
+        }
+
+        // 每隔一段时间创建一个新的弹窗
+        setInterval(createPopup, 1000);
+
+        // 初始创建一些弹窗
+        for (let i = 0; i < 5; i++) {
+            createPopup();
+        }
+    </script>
+</body>
+</html>
